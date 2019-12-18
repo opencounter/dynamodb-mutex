@@ -1,0 +1,13 @@
+[Unit]
+Description=Locks via DynamoDB, signals via sd_notify, waits for signal
+Requires=network-online.target
+After=network-online.target
+BindsTo=%i
+
+[Service]
+Type=notify
+NotifyAccess=main
+Environment=DYNAMODB_TABLE_NAME=vault-dev-sync
+Environment=AWS_REGION=us-east-1
+ExecStart=/opt/bin/dynamodb-mutex %i
+KillSignal=SIGINT

@@ -1,0 +1,8 @@
+[Unit]
+Requires=dynamodb-mutex@%n.service
+After=dynamodb-mutex@%n.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=true
+ExecStart=/some/command which needs a lock
