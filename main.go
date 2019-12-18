@@ -44,7 +44,7 @@ func main() {
 	}
 	defer c.Close()
 
-	lock, err := c.AcquireLock(key, dynamolock.WithRefreshPeriod(10*time.Second)) //, dynamolock.FailIfLocked())
+	lock, err := c.AcquireLock(key, dynamolock.WithRefreshPeriod(10*time.Second), dynamolock.WithAdditionalTimeToWaitForLock(10*time.Minute)) //, dynamolock.FailIfLocked())
 	if err != nil {
 		log.Fatal(err)
 	}
