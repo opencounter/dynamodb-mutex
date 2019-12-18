@@ -1,2 +1,3 @@
 dynamodb-mutex
 dynamodb-mutex-amd64
+*.gz
