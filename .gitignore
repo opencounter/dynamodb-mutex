@@ -1,3 +1,2 @@
-dynamodb-mutex
-dynamodb-mutex-amd64
+dynamodb-mutex-linux-amd64
 *.gz
